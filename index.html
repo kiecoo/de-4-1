@@ -1,4 +1,4 @@
-// v11-0-(way2)-----(CPS) foreach-rename---add sign-in
+// test1-debug1 line by line of difference to see why de4 didn't show card
 <!doctype html>	
 	<html>
 	  <head>
@@ -140,7 +140,8 @@
 	// profile
 	
 	function profile (fx_done) {
-	   getGithubData (next)
+	   var el = getGithubData (next)
+	   fx_done(el)
            function next (x_data) {
 		    //var element1 = bel`<div>${data.map(x => bel`<p>${x.user}</p>`)}</div>`
 		    //done(element1)
@@ -199,7 +200,8 @@
 				    el.appendChild(cardContainer)
 				  }
 		            
-		    fx_done(el)
+		   // fx_done(el)
+			   return el
 			   }
             }
 		

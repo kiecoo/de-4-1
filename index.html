@@ -1,4 +1,4 @@
-// test1-debug1 line by line of difference to see why de4 didn't show card
+// test1-debug2 line by line of difference to see why de4 didn't show card
 <!doctype html>	
 	<html>
 	  <head>
@@ -142,7 +142,7 @@
 	function profile (fx_done) {
 	   var el = getGithubData (next)
 	   fx_done(el)
-           function next (x_data) {
+           function next (x_data,done) {
 		    //var element1 = bel`<div>${data.map(x => bel`<p>${x.user}</p>`)}</div>`
 		    //done(element1)
 		   x_data.forEach(putEl)
@@ -203,6 +203,7 @@
 		   // fx_done(el)
 			   return el
 			   }
+		           done(bel`<div>${data.map(putEl)}</div>`)
             }
 		
 	    function getGithubData (fy_next) {

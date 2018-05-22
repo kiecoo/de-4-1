@@ -1,4 +1,4 @@
-// test1-debug6 line by line of difference to see why de4 didn't show card
+// test1:add if error
 <!doctype html>	
 	<html>
 	  <head>
@@ -140,8 +140,18 @@
 	// profile
 	
 	function profile (fx_done) {
-	   var el = getGithubData (next)
+	//-------
+		 var code = location.search.split('=')[1]
+        console.log(code)
+        if (code) {
+           var el = getGithubData (next)
 	   fx_done(el)
+        } else {
+          document.body.appendChild(button)
+        }
+		//-------------------------
+		
+	  
            function next (x_data,done) {
 		   done(bel`<div>${x_data.map(putEl)}</div>`)
 		    function done (el) { document.body.appendChild(el) }

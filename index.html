@@ -1,4 +1,4 @@
-// test2:add loadCode_loadData
+// test2--debug1:add loadCode_loadData
 <!doctype html>	
 	<html>
 	  <head>
@@ -14,7 +14,7 @@
 	var bel = require('bel')
 	var csjs = require('csjs-inject')
 	  
-	/* --------------------------------------------------------
+	/* -------------------
 	FONTS
 	---------------------------------------------------------- */
 	var fonts             = ['https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', 'https://fonts.googleapis.com/css?family=Ubuntu']
@@ -154,8 +154,11 @@
         function loadCode (code) {
           //if (error) return console.error(error)
           console.log(`github responded with "${code}", so let's fetch a lot of data :-)`)
-          getGithubData(loadData) //getData("xxx", function callback (error, data) {}
+	  var el = getGithubData (next)	
+          fx_done(el) 	
+          //getGithubData(loadData) //getData("xxx", function callback (error, data) {}
         }
+	/* -------------------	
         function loadData (error, data) {
           //if (error) return console.error(error)
           console.log(`github sent us lots of data, so lets use it to build the page :-)`)
@@ -164,7 +167,8 @@
           var el = next(data)  
 	  //var el = getGithubData (next)	
           fx_done(el)          
-        }	
+        }
+	---------------------------------------------------------- */
 	  //-------
            function next (x_data,done) {
 		   done(bel`<div>${x_data.map(putEl)}</div>`)
